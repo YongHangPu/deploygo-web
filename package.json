@@ -1,0 +1,37 @@
+{
+  "name": "deploygo-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "deploygo 官网：Vue 3 + Vite + vite-ssg 静态预渲染站点",
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "vite-ssg build && tsx scripts/postbuild.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "preview": "vite preview --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource-variable/manrope": "5.3.0",
+    "@unhead/vue": "^2.1.2",
+    "axios": "1.21.0",
+    "vue": "3.5.44",
+    "vue-router": "4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.3",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vue/tsconfig": "0.9.1",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "vite": "8.3.5",
+    "vite-ssg": "28.3.0",
+    "vitest": "5.0.5",
+    "vue-tsc": "3.3.13"
+  }
+}

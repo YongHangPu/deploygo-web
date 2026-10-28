@@ -1,0 +1,8 @@
+# pnpm 11 的构建设置放在这里；本文件不是 workspace 定义（没有 packages 字段）。
+# esbuild 需要执行安装脚本以准备本地二进制。
+allowBuilds:
+  esbuild: true
+
+# 锁文件已固定 axios@1.21.0；该条用于本机较严格的发布年龄策略。
+minimumReleaseAgeExclude:
+  - axios@1.21.0

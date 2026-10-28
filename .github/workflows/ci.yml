@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: web-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build (prerender)
+        run: pnpm build
+
+      - name: Verify prerendered routes
+        run: |
+          set -e
+          for route in "" features pricing download docs changelog open-source faq; do
+            file="dist/${route:+$route/}index.html"
+            test -f "$file" || { echo "缺少预渲染页面: $file"; exit 1; }
+          done
+          test -f dist/404.html || { echo "缺少 404.html"; exit 1; }
+          echo "预渲染检查通过"
+          du -sh dist
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploygo-web-dist
+          path: dist
+          retention-days: 7
