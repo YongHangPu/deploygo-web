@@ -18,7 +18,11 @@ const OPTIONS: Array<{ value: ThemePreference; label: string; icon: 'moon' | 'su
 function closeMenu(returnFocus = false): void {
   if (!menuOpen.value) return
   menuOpen.value = false
-  if (returnFocus) nextTick(() => root.value?.querySelector<HTMLButtonElement>('.theme-toggle')?.focus())
+  if (returnFocus) {
+    nextTick(() => {
+      root.value?.querySelector<HTMLButtonElement>('.theme-toggle')?.focus({ preventScroll: true })
+    })
+  }
 }
 
 function toggleMenu(): void {
@@ -44,7 +48,7 @@ watch(menuOpen, async (open) => {
     document.addEventListener('pointerdown', onDocumentPointerDown)
     document.addEventListener('keydown', onKeydown)
     await nextTick()
-    menu.value?.querySelector<HTMLButtonElement>('[role="menuitemradio"]')?.focus()
+    menu.value?.querySelector<HTMLButtonElement>('[role="menuitemradio"]')?.focus({ preventScroll: true })
   } else {
     document.removeEventListener('pointerdown', onDocumentPointerDown)
     document.removeEventListener('keydown', onKeydown)
