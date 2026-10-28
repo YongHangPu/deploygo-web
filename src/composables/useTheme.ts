@@ -1,34 +1,61 @@
 import { computed, ref } from 'vue'
 
-export type Theme = 'dark' | 'light'
+/** 用户选择的主题模式：跟随系统 / 浅色 / 深色 */
+export type ThemePreference = 'system' | 'light' | 'dark'
+/** 实际生效的主题 */
+export type ResolvedTheme = 'dark' | 'light'
 
 const STORAGE_KEY = 'deploygo-theme'
-const theme = ref<Theme>('dark')
+const DARK_THEME_COLOR = '#0d1117'
+const LIGHT_THEME_COLOR = '#f6f7f9'
+
+const preference = ref<ThemePreference>('dark')
+const resolved = ref<ResolvedTheme>('dark')
+
 let initialized = false
 let switchTimer: ReturnType<typeof setTimeout> | null = null
+let mediaQuery: MediaQueryList | null = null
+let mediaListenerAttached = false
 
-function isTheme(value: unknown): value is Theme {
-  return value === 'dark' || value === 'light'
+function isPreference(value: unknown): value is ThemePreference {
+  return value === 'system' || value === 'light' || value === 'dark'
 }
 
-function applyTheme(next: Theme, persist: boolean): void {
-  theme.value = next
+function systemPrefersLight(): boolean {
+  return typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-color-scheme: light)').matches
+    : false
+}
+
+function resolveTheme(value: ThemePreference): ResolvedTheme {
+  if (value === 'system') return systemPrefersLight() ? 'light' : 'dark'
+  return value
+}
+
+function applyTheme(value: ThemePreference, persist: boolean, guardTransitions = true): void {
+  const theme = resolveTheme(value)
+  preference.value = value
+  resolved.value = theme
+
   if (typeof document === 'undefined') return
 
   const root = document.documentElement
-  if (persist) {
-    // 切换瞬间禁用过渡，避免文字已经变暗、背景还在渐变造成短暂低对比。
+  if (guardTransitions) {
+    // 主题切换瞬间禁用过渡，避免文字与背景颜色短暂错位。
     if (switchTimer) clearTimeout(switchTimer)
     root.classList.add('theme-switching')
   }
 
-  root.dataset.theme = next
-  root.style.colorScheme = next
+  root.dataset.theme = theme
+  root.dataset.themeMode = value
+  root.style.colorScheme = theme
 
   const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute('content', next === 'light' ? '#f6f7f9' : '#0d1117')
+  if (meta) {
+    meta.setAttribute('content', theme === 'light' ? LIGHT_THEME_COLOR : DARK_THEME_COLOR)
+  }
 
-  if (persist) {
+  if (guardTransitions) {
     switchTimer = setTimeout(() => {
       root.classList.remove('theme-switching')
       switchTimer = null
@@ -37,11 +64,30 @@ function applyTheme(next: Theme, persist: boolean): void {
 
   if (persist) {
     try {
-      localStorage.setItem(STORAGE_KEY, next)
+      localStorage.setItem(STORAGE_KEY, value)
     } catch {
       // 隐私模式下 localStorage 可能不可用，忽略即可
     }
   }
+}
+
+function attachSystemThemeListener(): void {
+  if (mediaListenerAttached) return
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return
+  mediaListenerAttached = true
+
+  const syncSystemTheme = (): void => {
+    if (preference.value === 'system') applyTheme('system', false)
+  }
+
+  mediaQuery = window.matchMedia('(prefers-color-scheme: light)')
+  mediaQuery.addEventListener('change', syncSystemTheme)
+  // 部分环境（旧浏览器 / 从后台切回）可能不派发 change，补两个兜底入口。
+  window.addEventListener('focus', syncSystemTheme)
+  window.addEventListener('pageshow', syncSystemTheme)
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) syncSystemTheme()
+  })
 }
 
 function initTheme(): void {
@@ -49,29 +95,28 @@ function initTheme(): void {
   initialized = true
   if (typeof document === 'undefined') return
 
-  // index.html 的内联脚本已经提前写入 data-theme，避免首屏闪烁。
-  const fromDom = document.documentElement.dataset.theme
   let stored: string | null = null
   try {
     stored = localStorage.getItem(STORAGE_KEY)
   } catch {
     stored = null
   }
-  const next: Theme = isTheme(fromDom) ? fromDom : isTheme(stored) ? stored : 'dark'
-  applyTheme(next, false)
+
+  // 兼容旧版本只存 dark/light 的情况；未设置过时保持品牌默认深色。
+  const next: ThemePreference = isPreference(stored) ? stored : 'dark'
+  applyTheme(next, false, false)
+  attachSystemThemeListener()
 }
 
 export function useTheme() {
   initTheme()
-  const isDark = computed(() => theme.value === 'dark')
 
-  function setTheme(next: Theme): void {
-    applyTheme(next, true)
+  const isDark = computed(() => resolved.value === 'dark')
+  const isSystem = computed(() => preference.value === 'system')
+
+  function setPreference(value: ThemePreference): void {
+    applyTheme(value, true)
   }
 
-  function toggle(): void {
-    setTheme(isDark.value ? 'light' : 'dark')
-  }
-
-  return { theme, isDark, setTheme, toggle }
+  return { preference, resolved, isDark, isSystem, setPreference }
 }
