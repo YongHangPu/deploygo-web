@@ -14,6 +14,13 @@ html {
   scroll-padding-top: calc(var(--header-h) + 28px);
 }
 
+/* 主题切换瞬间关闭过渡，避免文字与背景颜色短暂错位 */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
+}
+
 body {
   margin: 0;
   min-width: 320px;

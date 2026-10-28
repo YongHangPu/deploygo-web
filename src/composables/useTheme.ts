@@ -5,6 +5,7 @@ export type Theme = 'dark' | 'light'
 const STORAGE_KEY = 'deploygo-theme'
 const theme = ref<Theme>('dark')
 let initialized = false
+let switchTimer: ReturnType<typeof setTimeout> | null = null
 
 function isTheme(value: unknown): value is Theme {
   return value === 'dark' || value === 'light'
@@ -15,11 +16,24 @@ function applyTheme(next: Theme, persist: boolean): void {
   if (typeof document === 'undefined') return
 
   const root = document.documentElement
+  if (persist) {
+    // 切换瞬间禁用过渡，避免文字已经变暗、背景还在渐变造成短暂低对比。
+    if (switchTimer) clearTimeout(switchTimer)
+    root.classList.add('theme-switching')
+  }
+
   root.dataset.theme = next
   root.style.colorScheme = next
 
   const meta = document.querySelector('meta[name="theme-color"]')
   if (meta) meta.setAttribute('content', next === 'light' ? '#f6f7f9' : '#0d1117')
+
+  if (persist) {
+    switchTimer = setTimeout(() => {
+      root.classList.remove('theme-switching')
+      switchTimer = null
+    }, 80)
+  }
 
   if (persist) {
     try {
