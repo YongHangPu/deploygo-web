@@ -124,7 +124,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
             <ul v-if="index !== 5" class="cap__points">
               <li v-for="point in capability.points" :key="point">{{ point }}</li>
             </ul>
-            <div v-else class="cap__semantics" aria-hidden="true">
+            <div v-else class="cap__semantics dark-surface" aria-hidden="true">
               <div class="cap__node">
                 <span class="mono">assets/*.a1b2c3.js</span>
                 <span class="chip chip--muted">长缓存</span>

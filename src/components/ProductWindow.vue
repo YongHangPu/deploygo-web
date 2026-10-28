@@ -19,7 +19,7 @@ const logLines = [
 </script>
 
 <template>
-  <div class="product-window" role="img" aria-label="deploygo 桌面端发布界面示意：左侧服务器与项目列表，右侧展示发布进度、终端日志和版本历史与回滚按钮">
+  <div class="product-window dark-surface" role="img" aria-label="deploygo 桌面端发布界面示意：左侧服务器与项目列表，右侧展示发布进度、终端日志和版本历史与回滚按钮">
     <div class="product-window__bar">
       <span class="product-window__lights" aria-hidden="true">
         <i class="light light--red" />

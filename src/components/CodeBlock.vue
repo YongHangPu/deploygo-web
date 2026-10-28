@@ -34,7 +34,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="code-block" :class="{ 'code-block--dense': dense }">
+  <div class="code-block dark-surface" :class="{ 'code-block--dense': dense }">
     <div class="code-block__bar">
       <span class="code-block__name">
         <AppIcon name="file-code" :size="14" />

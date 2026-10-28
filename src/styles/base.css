@@ -324,6 +324,102 @@ samp {
   border: 0;
 }
 
+/* ==========================================================================
+   固定深色区域：代码块 / 终端 / 产品窗口 / 目录树
+   这些区域在浅色主题里仍保持深色质感，因此需要把主题令牌重新锁定为
+   深色值，避免 --text-primary 等变量变深后出现“深色底 + 深色字”。
+   ========================================================================== */
+
+.dark-surface {
+  color-scheme: dark;
+  color: var(--text-primary);
+
+  --bg-primary: #0d1117;
+  --bg-secondary: #11161f;
+  --bg-elevated: #151b24;
+  --bg-card: #161b22;
+  --bg-hover: #1d2735;
+  --bg-inset: #0a0e14;
+  --bg-code: #090d12;
+  --bg-chip: #131922;
+
+  --border: #30363d;
+  --border-subtle: #21262d;
+  --border-strong: #3d444d;
+
+  --text-primary: #e6edf3;
+  --text-secondary: #b6c2cf;
+  --text-muted: #8b949e;
+  --text-inverse: #06121f;
+
+  --accent-blue: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-yellow: #d29922;
+  --accent-red: #f85149;
+  --accent-purple: #bc8cff;
+
+  --accent-blue-soft: rgba(88, 166, 255, 0.12);
+  --accent-blue-line: rgba(88, 166, 255, 0.4);
+  --accent-green-soft: rgba(63, 185, 80, 0.15);
+  --accent-green-line: rgba(63, 185, 80, 0.4);
+  --accent-yellow-soft: rgba(210, 153, 34, 0.15);
+  --accent-yellow-line: rgba(210, 153, 34, 0.4);
+  --accent-red-soft: rgba(248, 81, 73, 0.15);
+  --accent-red-line: rgba(248, 81, 73, 0.4);
+
+  --text-chip-blue: #b9d9ff;
+  --text-chip-green: #9fe0a8;
+  --text-chip-yellow: #e5c070;
+  --text-chip-red: #ffaaa4;
+  --text-accent-soft: #cfe4ff;
+  --text-code-inline: #a8c7f0;
+  --text-code-soft: #cfd9e4;
+  --text-link-hover: #8cc4ff;
+  --text-mono-soft: #a9b7c6;
+  --text-decorative: #4d5866;
+  --text-sep: #3d444d;
+  --text-symlink: #9ccbff;
+  --text-symlink-strong: #cfe4ff;
+  --text-warning-soft: #ffbdb8;
+  --text-watermark: rgba(230, 237, 243, 0.08);
+  --underline-green: rgba(63, 185, 80, 0.22);
+
+  --bg-panel-gradient: linear-gradient(180deg, rgba(21, 27, 36, 0.92), rgba(15, 20, 28, 0.92));
+  --bg-panel-strong-gradient: linear-gradient(180deg, rgba(25, 33, 45, 0.96), rgba(16, 21, 29, 0.96));
+  --bg-card-gradient: linear-gradient(180deg, rgba(20, 26, 35, 0.9), rgba(16, 21, 29, 0.9));
+  --bg-card-soft-gradient: linear-gradient(180deg, rgba(21, 27, 36, 0.7), rgba(14, 19, 26, 0.72));
+  --bg-card-soft-gradient-2: linear-gradient(180deg, rgba(21, 27, 36, 0.82), rgba(14, 19, 26, 0.86));
+  --bg-card-soft-gradient-3: linear-gradient(180deg, rgba(21, 27, 36, 0.8), rgba(14, 19, 26, 0.82));
+
+  --bg-soft-panel: rgba(17, 22, 31, 0.55);
+  --bg-soft-panel-2: rgba(17, 22, 31, 0.6);
+  --bg-soft-panel-strong: rgba(17, 22, 31, 0.9);
+  --bg-soft-dark: rgba(13, 17, 23, 0.45);
+  --bg-hero-fact: rgba(13, 17, 23, 0.45);
+  --bg-table-head: rgba(17, 22, 31, 0.9);
+  --bg-table-row-hover: rgba(29, 39, 53, 0.35);
+  --bg-secondary-btn: rgba(22, 27, 34, 0.72);
+  --bg-footer-fade: linear-gradient(180deg, rgba(13, 17, 23, 0), rgba(10, 14, 20, 0.85));
+  --bg-modal-overlay: rgba(4, 7, 11, 0.76);
+  --bg-modal: linear-gradient(180deg, #151b24 0%, #10151d 100%);
+  --bg-cta: radial-gradient(ellipse 60% 140% at 88% 0%, rgba(88, 166, 255, 0.16), transparent 62%),
+    linear-gradient(180deg, #131a24, #0f141d);
+  --bg-notice: rgba(88, 166, 255, 0.08);
+  --bg-repo-highlight: radial-gradient(ellipse 90% 120% at 100% 0%, rgba(88, 166, 255, 0.14), transparent 60%),
+    rgba(18, 24, 32, 0.85);
+  --bg-glow-a: rgba(88, 166, 255, 0.1);
+  --bg-glow-b: rgba(63, 185, 80, 0.07);
+  --grid-line: rgba(48, 54, 61, 0.32);
+  --selection-bg: rgba(88, 166, 255, 0.28);
+  --selection-fg: #f5f9ff;
+
+  --btn-primary-border: #7cbaff;
+  --btn-primary-hover-bg: #74b6ff;
+  --btn-primary-hover-border: #9cccff;
+  --btn-primary-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 10px 28px -16px rgba(88, 166, 255, 0.7);
+}
+
 .skip-link {
   position: absolute;
   top: 12px;

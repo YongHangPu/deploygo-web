@@ -29,7 +29,7 @@ usePageHead({
         </div>
       </div>
 
-      <div class="not-found__terminal mono" role="presentation">
+      <div class="not-found__terminal dark-surface mono" role="presentation">
         <div class="not-found__terminal-bar">
           <span class="dot" />
           <span>deploygo · router</span>

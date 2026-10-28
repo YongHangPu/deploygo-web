@@ -187,7 +187,7 @@ const questionCount = flattenFaq().length
   height: 38px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--bg-code);
+  background: var(--bg-inset);
   color: var(--accent-green);
 }
 

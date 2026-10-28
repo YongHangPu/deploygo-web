@@ -29,7 +29,7 @@ import { REMOTE_TREE_SNIPPET } from '@/data/snippets'
       </li>
     </ol>
 
-    <div class="symlink">
+    <div class="symlink dark-surface">
       <div class="symlink__head">
         <span class="symlink__label mono">远端目录约定</span>
         <span class="chip chip--green"><span class="dot dot--live" />live 始终指向一个完整版本</span>
