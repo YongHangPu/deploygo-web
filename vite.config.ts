@@ -17,6 +17,10 @@ const ssgOptions: ViteSSGOptions = {
   includedRoutes: () => [...SITE_ROUTE_PATHS, NOT_FOUND_PATH],
 }
 
+// 端口/代理目标可通过环境变量覆盖（dev:all 会用不同端口同时启动多个项目）
+const devPort = Number(process.env.WEB_PORT || 5173)
+const apiProxyTarget = process.env.API_PROXY_TARGET || 'http://127.0.0.1:3000'
+
 const config: UserConfig & { ssgOptions: ViteSSGOptions } = {
   plugins: [vue()],
   resolve: {
@@ -25,11 +29,11 @@ const config: UserConfig & { ssgOptions: ViteSSGOptions } = {
     },
   },
   server: {
-    port: 5173,
+    port: devPort,
     strictPort: true,
     proxy: {
       // 开发环境：/api/v1/... 代理到本地后端，不重写路径
-      '/api': { target: 'http://127.0.0.1:3000', changeOrigin: false },
+      '/api': { target: apiProxyTarget, changeOrigin: false },
     },
   },
   preview: {
