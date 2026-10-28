@@ -61,7 +61,7 @@ import { REMOTE_TREE_SNIPPET } from '@/data/snippets'
   padding: 10px 14px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: rgba(13, 17, 23, 0.6);
+  background: var(--bg-soft-dark);
   width: fit-content;
 }
 
@@ -109,7 +109,7 @@ import { REMOTE_TREE_SNIPPET } from '@/data/snippets'
   border: 1px solid var(--accent-blue-line);
   border-radius: 8px;
   background: var(--accent-blue-soft);
-  color: #9ccbff;
+  color: var(--text-symlink);
   font-size: 12px;
   font-weight: 600;
 }
@@ -140,7 +140,7 @@ import { REMOTE_TREE_SNIPPET } from '@/data/snippets'
   border: 1px solid var(--border-subtle);
   border-left: 2px solid var(--accent-green-line);
   border-radius: 6px;
-  background: rgba(17, 22, 31, 0.66);
+  background: var(--bg-soft-panel-2);
   max-width: 48ch;
 }
 
@@ -201,7 +201,7 @@ import { REMOTE_TREE_SNIPPET } from '@/data/snippets'
   border: 1px solid var(--accent-blue-line);
   border-radius: var(--radius-sm);
   background: var(--accent-blue-soft);
-  color: #cfe4ff;
+  color: var(--text-symlink-strong);
   font-size: 13.5px;
   line-height: 1.65;
 }

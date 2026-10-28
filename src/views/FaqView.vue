@@ -176,7 +176,7 @@ const questionCount = flattenFaq().length
   padding: 22px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .faq-help__icon {

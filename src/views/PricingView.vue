@@ -186,7 +186,7 @@ function openPurchase(plan: PricingPlan): void {
   border: 1px solid var(--accent-yellow-line);
   border-radius: var(--radius-sm);
   background: var(--accent-yellow-soft);
-  color: #e8c887;
+  color: var(--text-gold);
   font-size: 13.5px;
   line-height: 1.7;
 }
@@ -198,11 +198,11 @@ function openPurchase(plan: PricingPlan): void {
 }
 
 .payment-note strong {
-  color: #f2d79b;
+  color: var(--text-gold-strong);
 }
 
 .payment-note a {
-  color: #ffd98a;
+  color: var(--text-gold-link);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

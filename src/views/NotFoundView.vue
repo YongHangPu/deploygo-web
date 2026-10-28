@@ -66,7 +66,7 @@ usePageHead({
 }
 
 .not-found__code {
-  color: rgba(230, 237, 243, 0.08);
+  color: var(--text-watermark);
   font-size: clamp(96px, 16vw, 190px);
   font-weight: 700;
   line-height: 0.82;
@@ -139,7 +139,7 @@ usePageHead({
 }
 
 .not-found__error {
-  color: #ffaaa4;
+  color: var(--text-warning-soft);
 }
 
 .not-found__hint {

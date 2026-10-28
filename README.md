@@ -1,9 +1,10 @@
 # deploygo 官网（deploygo-web）
 
-deploygo 的产品官网：暗色技术风格，中文内容，全站静态预渲染（vite-ssg），面向搜索引擎与直接分享都可用。
+deploygo 的产品官网：深色 / 浅色双主题（默认深色，可切换并记忆），中文内容，全站静态预渲染（vite-ssg），面向搜索引擎与直接分享都可用。
 
 - 线上页面：`/`、`/features`、`/pricing`、`/download`、`/docs`、`/changelog`、`/open-source`、`/faq`、`/404`
 - 每个路由在构建期生成 `dist/<route>/index.html`，HTML 内包含完整文案与 SEO meta
+- 右上角主题按钮切换深色 / 浅色，选择保存到 `localStorage`（`deploygo-theme`），首屏由 `index.html` 内联脚本提前应用，不会闪烁
 - 定价、下载、更新日志、站点信息读取 `/api/v1/public/*`，接口不可用时使用本地 fallback 数据
 - 购买流程暂未接入在线支付：定价页的购买按钮打开「购买意向」弹窗，提交到 `/api/v1/public/purchase-intents`
 
@@ -22,6 +23,14 @@ deploygo 的产品官网：暗色技术风格，中文内容，全站静态预�
 | @fontsource-variable/manrope、jetbrains-mono | 5.3.0 | 品牌字体（自托管，不请求 Google Fonts） |
 
 视觉层不使用 UI 组件库与动画库：样式全部手写在 `src/styles/` 与各组件 `<style scoped>` 中，滚动入场用 IntersectionObserver + CSS transition。
+
+## 主题切换
+
+- `src/composables/useTheme.ts`：读取 / 写入 `localStorage`，同步 `<html data-theme>`、`color-scheme` 与 `meta[name=theme-color]`
+- `src/components/ThemeToggle.vue`：导航栏右上角的日 / 月图标按钮
+- `index.html`：内联脚本在首屏渲染前应用已保存主题，避免深色 ↔ 浅色闪烁
+- 色板：`src/styles/tokens.css` 的 `:root`（深色）与 `:root[data-theme='light']`（浅色）；新增组件时优先使用 `--bg-* / --text-* / --border-*` 语义令牌
+- 代码块、终端和桌面端产品窗口 mock 在浅色主题下仍保持深色，以保留终端质感
 
 ## 目录结构
 

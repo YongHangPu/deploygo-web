@@ -340,7 +340,7 @@ onBeforeUnmount(() => {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(4, 7, 11, 0.76);
+  background: var(--bg-modal-overlay);
   backdrop-filter: blur(3px);
 }
 
@@ -352,7 +352,7 @@ onBeforeUnmount(() => {
   padding: clamp(22px, 3vw, 32px);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, #151b24 0%, #10151d 100%);
+  background: var(--bg-modal);
   box-shadow: var(--shadow-lg);
 }
 
@@ -451,7 +451,7 @@ onBeforeUnmount(() => {
   border: 1px solid var(--accent-red-line);
   border-radius: var(--radius-sm);
   background: var(--accent-red-soft);
-  color: #ffbdb8;
+  color: var(--text-warning-soft);
   font-size: 13px;
   line-height: 1.6;
 }

@@ -48,28 +48,26 @@
 .btn--primary {
   --btn-bg: var(--accent-blue);
   --btn-fg: var(--text-inverse);
-  --btn-border: #7cbaff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.24),
-    0 10px 28px -16px rgba(88, 166, 255, 0.7);
+  --btn-border: var(--btn-primary-border);
+  box-shadow: var(--btn-primary-shadow);
 }
 
 .btn--primary:hover {
-  --btn-bg: #74b6ff;
-  --btn-border: #9cccff;
+  --btn-bg: var(--btn-primary-hover-bg);
+  --btn-border: var(--btn-primary-hover-border);
   color: var(--text-inverse);
 }
 
 .btn--secondary {
-  --btn-bg: rgba(22, 27, 34, 0.72);
+  --btn-bg: var(--bg-secondary-btn);
   --btn-border: var(--border-strong);
   color: var(--text-primary);
 }
 
 .btn--secondary:hover {
   --btn-border: var(--accent-blue);
-  color: #d6e8ff;
-  background: rgba(88, 166, 255, 0.08);
+  color: var(--text-accent-soft);
+  background: var(--accent-blue-soft);
 }
 
 .btn--ghost {
@@ -126,25 +124,25 @@
 .chip--blue {
   border-color: var(--accent-blue-line);
   background: var(--accent-blue-soft);
-  color: #b9d9ff;
+  color: var(--text-chip-blue);
 }
 
 .chip--green {
   border-color: var(--accent-green-line);
   background: var(--accent-green-soft);
-  color: #9fe0a8;
+  color: var(--text-chip-green);
 }
 
 .chip--yellow {
   border-color: var(--accent-yellow-line);
   background: var(--accent-yellow-soft);
-  color: #e5c070;
+  color: var(--text-chip-yellow);
 }
 
 .chip--red {
   border-color: var(--accent-red-line);
   background: var(--accent-red-soft);
-  color: #ffaaa4;
+  color: var(--text-chip-red);
 }
 
 .chip--muted {
@@ -160,7 +158,7 @@
 }
 
 .dot--live {
-  box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.16);
+  box-shadow: 0 0 0 3px var(--accent-green-soft);
 }
 
 /* —— 面板与卡片 —— */
@@ -168,8 +166,7 @@
   position: relative;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  background:
-    linear-gradient(180deg, rgba(21, 27, 36, 0.92) 0%, rgba(15, 20, 28, 0.92) 100%);
+  background: var(--bg-panel-gradient);
   box-shadow: var(--shadow-md);
 }
 
@@ -177,7 +174,7 @@
   position: relative;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(20, 26, 35, 0.9), rgba(16, 21, 29, 0.9));
+  background: var(--bg-card-gradient);
   transition:
     border-color var(--dur) var(--ease),
     background-color var(--dur) var(--ease),
@@ -192,7 +189,7 @@
 .card--accent {
   border-color: var(--accent-blue-line);
   box-shadow:
-    0 0 0 1px rgba(88, 166, 255, 0.08),
+    0 0 0 1px var(--accent-blue-soft),
     var(--shadow-md);
 }
 
@@ -237,7 +234,7 @@
   overflow-x: auto;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(13, 17, 23, 0.6);
+  background: var(--bg-soft-panel-2);
 }
 
 .data-table {
@@ -250,7 +247,7 @@
 .data-table th {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
-  background: rgba(17, 22, 31, 0.9);
+  background: var(--bg-table-head);
   color: var(--text-muted);
   font-family: var(--font-code);
   font-size: 11px;
@@ -280,7 +277,7 @@
 }
 
 .data-table tbody tr:hover td {
-  background: rgba(29, 39, 53, 0.35);
+  background: var(--bg-table-row-hover);
 }
 
 /* —— 页头（非首页） —— */
@@ -324,7 +321,7 @@
   border: 1px solid var(--border-subtle);
   border-left: 2px solid var(--accent-blue);
   border-radius: var(--radius-sm);
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
 }
 
 .page-hero__meta dt {
@@ -355,9 +352,7 @@
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background:
-    radial-gradient(ellipse 60% 140% at 88% 0%, rgba(88, 166, 255, 0.16), transparent 62%),
-    linear-gradient(180deg, #131a24, #0f141d);
+  background: var(--bg-cta);
   padding: clamp(28px, 4vw, 48px);
 }
 
@@ -441,7 +436,7 @@
   padding: 16px 18px;
   overflow: auto;
   max-height: var(--code-max-height, none);
-  color: #cfd9e4;
+  color: var(--text-code-soft);
   font-family: var(--font-code);
   font-size: 12.5px;
   line-height: 1.72;
@@ -480,7 +475,7 @@
 }
 
 .field__error {
-  color: #ffaaa4;
+  color: var(--text-warning-soft);
   font-size: 12.5px;
   line-height: 1.5;
 }
@@ -577,7 +572,7 @@
 .segmented__item[aria-selected='true'] {
   border-color: var(--accent-blue-line);
   background: var(--accent-blue-soft);
-  color: #cfe4ff;
+  color: var(--text-accent-soft);
 }
 
 /* —— 折叠面板 —— */
@@ -677,8 +672,8 @@
   gap: 10px;
   padding: 8px var(--gutter);
   border-bottom: 1px solid var(--border-subtle);
-  background: rgba(88, 166, 255, 0.08);
-  color: #cfe4ff;
+  background: var(--bg-notice);
+  color: var(--text-accent-soft);
   font-size: 13px;
   text-align: center;
 }

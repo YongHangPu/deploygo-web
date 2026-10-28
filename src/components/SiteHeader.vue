@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { NAV_ROUTES } from '@/data/routes'
 import AppIcon from '@/components/AppIcon.vue'
 import BrandMark from '@/components/BrandMark.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 
 const route = useRoute()
 const scrolled = ref(false)
@@ -99,6 +100,7 @@ watch(
       </nav>
 
       <div class="site-header__actions">
+        <ThemeToggle />
         <RouterLink to="/download" class="btn btn--primary btn--sm header-cta">
           下载桌面端
         </RouterLink>
@@ -140,7 +142,7 @@ watch(
   top: 0;
   z-index: var(--z-header);
   border-bottom: 1px solid transparent;
-  background: rgba(13, 17, 23, 0.72);
+  background: var(--bg-header);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   transition:
@@ -151,7 +153,7 @@ watch(
 .site-header.is-scrolled,
 .site-header.is-open {
   border-bottom-color: var(--border-subtle);
-  background: rgba(11, 15, 21, 0.94);
+  background: var(--bg-header-scrolled);
 }
 
 .site-header__inner {
@@ -256,7 +258,7 @@ watch(
   gap: 10px;
   padding: 12px var(--gutter) 20px;
   border-top: 1px solid var(--border-subtle);
-  background: rgba(11, 15, 21, 0.98);
+  background: var(--bg-mobile-menu);
 }
 
 .mobile-menu__nav {

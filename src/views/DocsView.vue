@@ -462,7 +462,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
   border: 1px solid var(--border-subtle);
   border-left: 2px solid var(--accent-blue);
   border-radius: var(--radius-sm);
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
   color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.7;
@@ -479,7 +479,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
   border-radius: 4px;
   background: var(--bg-inset);
   font-size: 0.9em;
-  color: #a8c7f0;
+  color: var(--text-code-inline);
 }
 
 .docs-tabs {
@@ -511,7 +511,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
   border-radius: 4px;
   background: var(--bg-inset);
   font-size: 0.92em;
-  color: #a8c7f0;
+  color: var(--text-code-inline);
 }
 
 .docs-mount__side {
@@ -520,7 +520,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
   padding: 16px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .docs-mount__title {
@@ -545,7 +545,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
 
 .docs-mount__side code {
   font-size: 0.92em;
-  color: #a8c7f0;
+  color: var(--text-code-inline);
 }
 
 .docs-rules {
@@ -579,7 +579,7 @@ const faqItems = pickFaqItems(['build', 'component', 'no-prompt', 'failure'])
   border-radius: 4px;
   background: var(--bg-inset);
   font-size: 0.9em;
-  color: #a8c7f0;
+  color: var(--text-code-inline);
 }
 
 .docs-release {

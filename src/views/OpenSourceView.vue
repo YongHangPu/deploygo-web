@@ -263,7 +263,7 @@ const meta = [
   padding: 20px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
 }
 
 .model__col--open {
@@ -289,7 +289,7 @@ const meta = [
   border: 1px solid var(--accent-green-line);
   border-radius: 5px;
   background: var(--accent-green-soft);
-  color: #9fe0a8;
+  color: var(--text-chip-green);
   font-size: 10px;
   letter-spacing: 0.08em;
 }
@@ -349,9 +349,7 @@ const meta = [
   padding: 20px;
   border: 1px solid var(--accent-blue-line);
   border-radius: var(--radius-md);
-  background:
-    radial-gradient(ellipse 90% 120% at 100% 0%, rgba(88, 166, 255, 0.14), transparent 60%),
-    rgba(18, 24, 32, 0.85);
+  background: var(--bg-repo-highlight);
 }
 
 .model__result-label {
@@ -377,7 +375,7 @@ const meta = [
   padding: 22px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .repo-list--yes {
@@ -455,7 +453,7 @@ const meta = [
   padding: 22px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(21, 27, 36, 0.8), rgba(14, 19, 26, 0.82));
+  background: var(--bg-card-soft-gradient-3);
 }
 
 .license-card__head {

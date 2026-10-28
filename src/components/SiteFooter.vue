@@ -111,7 +111,7 @@ const resourceLinks = [
   margin-top: clamp(48px, 6vw, 88px);
   padding-block: clamp(40px, 5vw, 64px) 28px;
   border-top: 1px solid var(--border-subtle);
-  background: linear-gradient(180deg, rgba(13, 17, 23, 0) 0%, rgba(10, 14, 20, 0.85) 100%);
+  background: var(--bg-footer-fade);
 }
 
 .site-footer__grid {

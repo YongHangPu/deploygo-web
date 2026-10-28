@@ -26,10 +26,12 @@ export type IconName =
   | 'menu'
   | 'minus'
   | 'monitor'
+  | 'moon'
   | 'plus'
   | 'refresh'
   | 'server'
   | 'shield'
+  | 'sun'
   | 'terminal'
   | 'upload-cloud'
 
@@ -81,9 +83,16 @@ const ICONS: Record<IconName, IconShape[]> = {
   menu: [{ d: 'M4 7h16M4 12h16M4 17h16' }],
   minus: [{ d: 'M5 12h14' }],
   monitor: [{ d: 'M3.5 5h17v11h-17Z' }, { d: 'M9 20h6M12 16v4' }],
+  moon: [{ d: 'M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z' }],
   plus: [{ d: 'M12 5v14M5 12h14' }],
   refresh: [{ d: 'M20.5 12a8.5 8.5 0 1 1-2.5-6.02M20.5 4v5h-5' }],
   server: [{ d: 'M4 4.5h16v5H4Z' }, { d: 'M4 14.5h16v5H4Z' }, { d: 'M7.5 7h.01M7.5 17h.01' }],
+  sun: [
+    { d: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z' },
+    {
+      d: 'M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4',
+    },
+  ],
   shield: [{ d: 'M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3Z' }, { d: 'm9 12 2 2 4-4' }],
   terminal: [{ d: 'm5 8 4 4-4 4M12.5 16h6.5' }],
   'upload-cloud': [{ d: 'M12 16V4M7.5 8.5 12 4l4.5 4.5' }, { d: 'M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3' }],

@@ -436,7 +436,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   right: 0;
   bottom: 0.02em;
   height: 0.12em;
-  background: rgba(63, 185, 80, 0.22);
+  background: var(--underline-green);
   border-radius: 2px;
 }
 
@@ -462,7 +462,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
 /* ================= Hero 事实条 ================= */
 .hero-facts {
   border-block: 1px solid var(--border-subtle);
-  background: rgba(13, 17, 23, 0.45);
+  background: var(--bg-hero-fact);
 }
 
 .hero-facts__inner {
@@ -499,7 +499,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   padding: 20px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(21, 27, 36, 0.82), rgba(14, 19, 26, 0.86));
+  background: var(--bg-card-soft-gradient-2);
   transition:
     border-color var(--dur) var(--ease),
     transform var(--dur) var(--ease);
@@ -530,7 +530,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
 }
 
 .cap__index {
-  color: #4d5866;
+  color: var(--text-decorative);
   font-size: 11px;
   letter-spacing: 0.08em;
 }
@@ -611,7 +611,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: #a9b7c6;
+  color: var(--text-mono-soft);
   font-size: 11.5px;
 }
 
@@ -671,7 +671,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   padding: 22px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .fit-col--yes {
@@ -794,7 +794,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   border: 1px solid var(--border-subtle);
   border-left: 2px solid var(--accent-green-line);
   border-radius: 8px;
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
 }
 
 .security__model-label {
@@ -835,7 +835,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
 }
 
 .security__index {
-  color: #4d5866;
+  color: var(--text-decorative);
   font-size: 11px;
   padding-top: 3px;
 }
@@ -868,7 +868,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
   padding: 14px 16px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
   color: var(--text-muted);
   font-size: 12.8px;
   line-height: 1.7;
@@ -927,7 +927,7 @@ const CAPABILITY_SPANS = ['span-7', 'span-5', 'span-4', 'span-4', 'span-4', 'spa
 }
 
 .preview-plan__original {
-  color: #7d8590;
+  color: var(--text-muted);
   font-size: 13px;
   font-weight: 400;
 }

@@ -168,7 +168,7 @@ const meta = computed(() => [
   border: 1px solid var(--accent-blue-line);
   border-radius: 5px;
   background: var(--accent-blue-soft);
-  color: #b9d9ff;
+  color: var(--text-chip-blue);
   font-size: 11.5px;
 }
 
@@ -260,7 +260,7 @@ const meta = computed(() => [
 }
 
 .timeline__toggle:hover {
-  color: #8cc4ff;
+  color: var(--text-link-hover);
 }
 
 .changelog__more {

@@ -79,7 +79,7 @@ const monthlyPrice = computed(() => {
   padding: 22px 20px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(21, 27, 36, 0.92), rgba(15, 20, 28, 0.94));
+  background: var(--bg-panel-gradient);
   transition:
     border-color var(--dur) var(--ease),
     transform var(--dur) var(--ease);
@@ -92,10 +92,10 @@ const monthlyPrice = computed(() => {
 
 .plan-card--featured {
   border-color: var(--accent-blue-line);
-  background: linear-gradient(180deg, rgba(25, 33, 45, 0.96), rgba(16, 21, 29, 0.96));
+  background: var(--bg-panel-strong-gradient);
   box-shadow:
-    inset 0 1px 0 rgba(88, 166, 255, 0.16),
-    0 0 0 1px rgba(88, 166, 255, 0.1),
+    inset 0 1px 0 var(--accent-blue-soft),
+    0 0 0 1px var(--accent-blue-soft),
     var(--shadow-md);
 }
 
@@ -157,7 +157,7 @@ const monthlyPrice = computed(() => {
 }
 
 .plan-card__original s {
-  color: #7d8590;
+  color: var(--text-muted);
 }
 
 .plan-card__monthly {

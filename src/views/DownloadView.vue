@@ -370,7 +370,7 @@ const meta = computed(() => [
 .platform {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(21, 27, 36, 0.7), rgba(14, 19, 26, 0.72));
+  background: var(--bg-card-soft-gradient);
   overflow: hidden;
 }
 
@@ -456,7 +456,7 @@ const meta = computed(() => [
 }
 
 .download-item__sep {
-  color: #3d444d;
+  color: var(--text-sep);
 }
 
 .download-item__note {
@@ -523,7 +523,7 @@ const meta = computed(() => [
   padding: 18px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.6);
+  background: var(--bg-soft-panel-2);
 }
 
 .templates__side-head {
@@ -578,7 +578,7 @@ const meta = computed(() => [
 }
 
 .link-button:hover {
-  color: #8cc4ff;
+  color: var(--text-link-hover);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -594,7 +594,7 @@ const meta = computed(() => [
   border: 1px solid var(--border-subtle);
   border-top: 2px solid var(--accent-blue-line);
   border-radius: var(--radius-md);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .install-note__title {

@@ -254,7 +254,7 @@ function supportChip(support: string): string {
 }
 
 .feature-row__index {
-  color: #4d5866;
+  color: var(--text-decorative);
   font-size: 11.5px;
   letter-spacing: 0.08em;
 }
@@ -316,7 +316,7 @@ function supportChip(support: string): string {
   padding: 12px 14px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: rgba(17, 22, 31, 0.55);
+  background: var(--bg-soft-panel);
 }
 
 .guarantee__icon {
@@ -373,9 +373,9 @@ function supportChip(support: string): string {
 }
 
 .compare-workflow__highlight {
-  color: #cfe4ff !important;
+  color: var(--text-accent-soft) !important;
   font-weight: 600;
-  background: rgba(88, 166, 255, 0.06);
+  background: var(--accent-blue-soft);
 }
 
 @media (min-width: 901px) {

@@ -6,7 +6,23 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#0d1117" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      // 在首屏渲染前应用主题，避免深色/浅色闪烁；默认深色。
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('deploygo-theme')
+          var theme = stored === 'light' || stored === 'dark' ? stored : 'dark'
+          var root = document.documentElement
+          root.dataset.theme = theme
+          root.style.colorScheme = theme
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', theme === 'light' ? '#f6f7f9' : '#0d1117')
+        } catch (error) {
+          /* localStorage 不可用时保持默认深色 */
+        }
+      })()
+    </script>
     <meta
       name="description"
       content="deploygo 是一款面向前端静态项目的桌面端部署工具，提供一键部署、版本管理、重复发布拦截与快速回滚能力。"
